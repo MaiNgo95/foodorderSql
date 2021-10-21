@@ -1,69 +1,65 @@
 <?php include('partials/menu.php');?>
+<!-- put partials inside admin file -->
 
-<div>
-    <h1>Admin</h1>
+        <div class ="main-content"> 
+            <div class= "wrapper">
+               <h1><strong>Add Admin</strong></h1>
 
-    <?php
-    if (isset($_SESSION['add'])){
-        echo $_SESSION['add'];
-        unset($_SESSION['add']); //display the message
-    }
-    ?>
+               <form action = "" method = "POST">
+                   <table class = "tableaddadmin">
+                       <td> Full name:</td>
+                       <td><input type="text" name="full_name" placeholder = "Enter your name"></td>
+                   </table>
 
-    <form action ="" method = "POST">
-        <div>
-            <table class= 'tableadmin'>
-                <tr>
-                    <td>Full Name </td> 
-                    <td><input type= "text" name= "full_name" 
-                    placeholder="enter your name"></td>
-                   
-                </tr>
-                <br>
-                <tr>
-                    <td>username </td> 
-                    <td><input type= "text" name= "username" 
-                    placeholder="enter your name"></td>
-                  
-                </tr>
-                <br>
-                <tr>
-                    <td>Password </td>
-                     <td><input type= "password" name= "password"
-                     placeholder="enter your name"></td>
-                </tr>
-                <br>
-                <tr>
-                    <td colspan = "2"><input type= "submit" name = "submit" value=" Add Admin " class="addadmin"></td>
-                    
-                </tr>
-            </table>
-</div>
+                   <table class = "tableaddadmin">
+                       <td> User name:</td>
+                       <td><input type="text" name="username" placeholder = "Enter your user name"></td>
+                   </table>
 
-    </form>
-</div>
+                   <table class = "tableaddadmin">
+                       <td> Password:</td>
+                       <td><input type="password" name="password" placeholder = " "></td>
+                   </table>
+
+                   <table colpan="2">
+                       <td><input type="submit" name="submit" value = "Add admin" class= ""></td>
+                   </table>
+            </div>
+        </div>
+
 <?php include('partials/footer.php');?>
+
+<!-- add admin into database    -->
 <?php
     if(isset($_POST['submit']))
     {
-        $full_name = $_POST['full_name'];
-        $username = $_POST['username'];
-        $password = md5($_POST['password']);
+        //save data into php page
+        $full_name= $_POST['full_name'];
+        $username= $_POST['username'];
+        $password= md5($_POST['password']); //encryption for password
+        
+        //SQL part to save the data into MySQL
+        $sql = "INSERT INTO admin SET
+            full_name = '$full_name',
+            username = '$username',
+            password = '$password'
+            ";
+            //echo $sql;
+        //save data into database
+        $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+    }
+    if($res == TRUE){
+        $_SESSION['add'] = "New admin added."; //give a message
+        header("location:".SITEURL.'admin/manage-admin.php'); //the loacation to save the new input
+    }
+    else{
+        $_SESSION['add'] = "New admin not added.";
+    }
     
-    //save data into database
-    $sql = "INSERT INTO admin SET
-    full_name = '$full_name',
-     username = '$username', 
-     password = '$password' " ;
-
-     $res = mysqli_query($conn, $sql) or die(mysqli_error());
-   
-    }
-    if ($res == True){
-        $_SESSION['add']= "admin added successfully";
-        header("location:".SITEURL.'admin/manage-admin.php');
-    }else{
-        $_SESSION['add']= "admin added failed";
-        header("location:".SITEURL.'admin/add-admin.php');
-    }
+    // {
+    //     echo " yes";
+    // }
+    // else{
+    //     echo "no";
+    // }
 ?>
