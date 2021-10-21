@@ -4,106 +4,100 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 .wrapper{
-    /*border: 1px solid black;*/
+   
     padding: 1% ; /*padding extend the size of border*/
     width: 80%; 
     margin: 0 auto; /*make the border in the center*/
 }
-.head{
-    text-align:center;
-    color: rgb(211, 91, 91);
-    margin: 1%;
-}
-.head:hover{
-    color: rgb(51, 51, 11);
-}
+ 
 
+
+.text-center{
+    text-align:center;
+}
+/* arrange the pcitures */
 .clearfix{
     float:none;
     clear:both;
-
-}
-.fixaddadmin{
-    padding: 50px;
 }
 
-
-.addadmin{
+/* css for button */
+.buttonadd{
+    margin: 2%;
     padding: 1%;
-    font-weight: bold;
-    background-color: yellow;
+    border-style: outset;
+    width: 8%;
+    color: red;
+
+}
+.buttonadd:hover {
+    border-style: inset;
 }
 
-.addadmin:hover{
-    background-color: rgb(173, 79, 95);
-}
-
-
-
+/* css for table */
 .tabstyle{
     width: 100%;
 
 }
 
+
 .tabstyle tr th{
     border-bottom: 1px solid black;
     padding: 1%;
 }
-
-.tabstyle tr td{
-    padding: 1%;
-}
-
-
+/* css for button delete/change password/ add addmin  */
 .admin{
-    padding: 1%;
+    padding: 0;
     font-weight: bold;
-    background-color: rgb(169, 204, 238);
-    margin: 1%;
-    color: rgb(59, 12, 12);
+    background-color: rgb(244, 245, 177);
+    margin: 5%;
+    color: rgb(233, 127, 127);
 }
 .admin:hover{
-    background-color: rgb(46, 47, 141);
+    background-color: rgb(130, 168, 240);
 }
 
-/*----add admin css*/
-.tableadmin{
-    margin: 4%;
-}
 .tableadmin tr td{
     margin: 5%;
 }
 
+.tableaddadmin{
+    width: 40%;
+}
+
+.delete{
+    color:rgb(223, 218, 217);
+}
+
+.error{
+    color:rgb(236, 234, 230);
+}
 .menu{
     border-bottom: 1px solid grey;
 }
 
 .menu ul {
     list-style-type:none;
-    text-align: center;
+
 }
 
 .menu ul li {
     display: inline;
     padding: 3%;
 }
+/* change the color */
 .menu ul li a{
     text-decoration:none;
     font-weight:bold;
     color: pink;
 }
+
 .menu ul li a:hover {
     color: red;/*change color for menu words*/
 }
 
-
-.center{ /*format for footer*/
-    text-align: center;
-    padding: 3%; 
-}
-/*content section*/
 .main-content{
-    background-color: rgb(226, 146, 226);
+    background-color: rgb(235, 195, 235);
     padding: 3%;
 
 }
@@ -115,7 +109,20 @@
     text-align: center;
     float:left;
 }
+
 .footer{
+    margin: 10%;
     background-color: rgb(121, 15, 98);
     color: white;
+    
+    
+}
+
+/* Login css */
+.login{
+    border: 1px solid grey;
+    width: 30%;
+    margin:  5% auto; 
+    /* move to the center */
+    padding: 2%;
 }
