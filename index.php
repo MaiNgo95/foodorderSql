@@ -4,7 +4,13 @@
     <div class = "main-content">
         <div class='wrapper'>
             <strong> DASH BOARD </strong>
-    </div>
+       <?php
+                if(isset($_SESSION['login']))
+                {
+                    echo $_SESSION['login'];
+                    unset($_SESSION['login']);
+                }
+            ?>
 
     <div class= "column">
         <h1>pcture</h1>
@@ -29,7 +35,7 @@
     <div class= 'clearfix'></div>
 
     </div>
-   
+   </div>
 
 
     <?php include('partials/footer.php'); ?> <!--cut the footer into another folder-->
